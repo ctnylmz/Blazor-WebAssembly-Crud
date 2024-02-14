@@ -10,11 +10,16 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-          var result =  Calculate(10 , 20);
-          
-          Add(result);
-       
-        
+            var result = Calculate(10, 20);
+
+            Add(result);
+
+            // ------------------------------------------- //
+
+            result = SuperCalculate(10,20,30,40,50,60,70,80,90,100);
+            
+            Add(result);
+
         }
 
 
@@ -32,6 +37,11 @@ namespace Methods
         static int Calculate(int number, int number2, int number3)
         {
             return number + number2 + number3;
+        }
+
+        static int SuperCalculate(params int[] numbers)
+        {
+            return numbers.Sum();
         }
 
     }
