@@ -1,20 +1,32 @@
-﻿using System;
+﻿using Business.Concrete;
+using Entities.Concrete;
+using System;
 
 namespace Workaround
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Engin Hocanın 1:23 Dk Kaldım");
+            Person person1 = new Person();
+            person1.FirstName = "Engin";
+
+            Person person2 = new Person();
+            person2.FirstName = "Murat";
+
+            Person person3 = new Person();
+            person3.FirstName = "ÇETİN";
+            person3.LastName = "Trt";
+            person3.NationalIdentity = 123;
+            person3.DateOfBirthYAear = 2000;
+
+            PttManager pttManager = new PttManager(new PersonManager());
+            pttManager.GiveMask(person3 );
         }
 
-        public class Vatandas
+       static void SelamVer()
         {
-            public string Ad { get; set; }
-            public string Soyad { get; set; }
-            public int DogumYılı { get; set; }
-            public long TcNo { get; set; }
+            Console.WriteLine("Merhaba");
         }
     }
 }
