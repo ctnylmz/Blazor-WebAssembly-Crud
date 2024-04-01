@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IDiscountSerice
+    public interface IDiscountService
     {
         IResult Add(Discount discount);
         IResult Update(Discount discount);

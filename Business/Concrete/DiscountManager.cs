@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class DiscountManager : IDiscountSerice
+    public class DiscountManager : IDiscountService
     {
         IDiscountDal _discountDal;
 
