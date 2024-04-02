@@ -49,10 +49,10 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetList")]
+        [HttpGet("GetProductDetails")]
         public IActionResult GetList()
         {
-            var result = _productService.GetList();
+            var result = _productService.GetProductDetails();
             if (result.Success)
             {
                 return Ok(result);

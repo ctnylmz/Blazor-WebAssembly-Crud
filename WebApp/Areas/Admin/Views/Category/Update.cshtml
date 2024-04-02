@@ -1,0 +1,33 @@
+﻿@model CategoryViewModel
+
+<div class="col-md-8 mx-auto" style="margin-top:100px;">
+    <div class="card">
+        <form method="post">
+            <div class="card-header">
+                <div class="card-title">Updated Category</div>
+            </div>
+            <div class="card-body">
+                <input type="hidden" asp-for="id" class="form-control input-square" id="squareInput">
+
+                <div class="form-group">
+                    <label for="squareInput">Category Name</label>
+                    <input type="text" asp-for="name" class="form-control input-square" id="squareInput">
+                </div>
+                <div class="form-group">
+                    <label for="squareSelect">Category Status</label>
+                    <select asp-for="status" class="form-control input-square" id="squareSelect">
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="card-action d-flex">
+                <a href="/Admin/Category" class="btn btn-danger w-25">Cancel</a>
+                <button class="btn btn-success w-25 ml-auto">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

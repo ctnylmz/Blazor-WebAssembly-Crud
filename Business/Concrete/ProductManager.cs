@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using Shareds.Utilities.Results;
 using System;
 using System.Collections.Generic;
@@ -36,9 +37,9 @@ namespace Business.Concrete
             return new SuccessDataResult<Product>(_productDal.Get(c => c.Id == id));
         }
 
-        public IDataResult<List<Product>> GetList()
+        public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList(), "Başarıyla Veriler Geldi");
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails().ToList(), "Başarıyla Veriler Geldi");
         }
 
         public IResult Update(Product product)
