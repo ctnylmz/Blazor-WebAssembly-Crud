@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(QrKitchenContext))]
-    [Migration("20240401125917_UpdateToProductCategoryId")]
-    partial class UpdateToProductCategoryId
+    [Migration("20240403085705_Start")]
+    partial class Start
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
