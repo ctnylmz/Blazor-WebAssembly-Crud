@@ -1,0 +1,46 @@
+﻿@model List<ContactViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="col-lg-8 mx-auto m-5">
+    <a href="/Admin/Contant/Add" class="btn btn-primary w-100 my-4">Add New Contant</a>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h4>Contant List</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>location</th>
+                            <th>phone</th>
+                            <th>mail</th>
+                            <th>description</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var contant in Model)
+                        {
+                            <tr>
+                                <td>@contant.location</td>
+                                <td>@contant.phone</td>
+                                <td>@contant.mail</td>
+                                <td>@contant.description</td>
+                                <td>
+                                    <a href="/Admin/Contant/Delete/@contant.id" class="btn btn-danger mr-2">Delete</a>
+                                    <a href="/Admin/Contant/Update/@contant.id" class="btn btn-primary">Update</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

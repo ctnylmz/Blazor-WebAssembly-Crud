@@ -1,0 +1,40 @@
+﻿@model ContactViewModel
+
+<div class="col-md-8 mx-auto" style="margin-top:100px;">
+    <div class="card">
+        <form method="post">
+            <div class="card-header">
+                <div class="card-title">New Contant</div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="squareInput">Contant Location</label>
+                    <input type="text" asp-for="location" class="form-control input-square" id="squareInput">
+                </div>
+
+                <div class="form-group">
+                    <label for="squareInput">Contant Phone</label>
+                    <input type="text" asp-for="phone" class="form-control input-square" id="squareInput">
+                </div>
+
+                <div class="form-group">
+                    <label for="squareInput">Contant Mail</label>
+                    <input type="text" asp-for="mail" class="form-control input-square" id="squareInput">
+                </div>
+
+                <div class="form-group">
+                    <label for="squareInput">Contant Description</label>
+
+                    <textarea type="text" asp-for="description" class="form-control input-square"></textarea>
+                </div>
+
+            </div>
+            <div class="card-action d-flex">
+                <a href="/Admin/Contant" class="btn btn-danger w-25">Cancel</a>
+                <button class="btn btn-success w-25 ml-auto">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

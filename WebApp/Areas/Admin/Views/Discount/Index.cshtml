@@ -1,0 +1,46 @@
+﻿@model List<DiscountViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="col-lg-8 mx-auto m-5">
+    <a href="/Admin/Discount/Add" class="btn btn-primary w-100 my-4">Add New Discount</a>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h4>Discount List</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>title</th>
+                            <th>amount</th>
+                            <th>description</th>
+                            <th>imageUrl</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var discount in Model)
+                        {
+                            <tr>
+                                <td>@discount.title</td>
+                                <td>@discount.amount</td>
+                                <td>@discount.description</td>
+                                <td>@discount.imageUrl</td>
+                                <td>
+                                    <a href="/Admin/Discount/Delete/@discount.id" class="btn btn-danger mr-2">Delete</a>
+                                    <a href="/Admin/Discount/Update/@discount.id" class="btn btn-primary">Update</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

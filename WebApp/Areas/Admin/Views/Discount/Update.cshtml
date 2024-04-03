@@ -1,0 +1,42 @@
+﻿@model DiscountViewModel
+
+<div class="col-md-8 mx-auto" style="margin-top:100px;">
+    <div class="card">
+        <form method="post">
+            <div class="card-header">
+                <div class="card-title">New Discount</div>
+            </div>
+            <input type="hidden" asp-for="id" class="form-control input-square" id="squareInput">
+
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="squareInput">Discount Title</label>
+                    <input type="text" asp-for="title" class="form-control input-square" id="squareInput">
+                </div>
+
+                <div class="form-group">
+                    <label for="squareInput">Discount Amount</label>
+                    <input type="text" asp-for="amount" class="form-control input-square" id="squareInput">
+                </div>
+
+                <div class="form-group">
+                    <label for="squareInput">Discount Description</label>
+                    <input type="text" asp-for="description" class="form-control input-square" id="squareInput">
+                </div>
+
+                <div class="form-group">
+                    <label for="squareInput">Discount Image</label>
+                    <input type="text" asp-for="imageUrl" class="form-control input-square" id="squareInput">
+                </div>
+
+            </div>
+
+            <div class="card-action d-flex">
+                <a href="/Admin/Discount" class="btn btn-danger w-25">Cancel</a>
+                <button class="btn btn-success w-25 ml-auto">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
