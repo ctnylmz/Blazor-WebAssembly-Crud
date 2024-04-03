@@ -11,7 +11,10 @@ namespace WebApi.Controllers
     {
         private readonly ITestimonialService _testimonialService;
 
-      
+        public TestimonialController(ITestimonialService testimonialService)
+        {
+            _testimonialService = testimonialService;
+        }
 
         [HttpPost("Add")]
         public IActionResult Add(Testimonial testimonial)
