@@ -29,7 +29,7 @@ app.MapControllerRoute(
     pattern: "{area}/{controller=Admin}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Default}/{action=Index}/{id?}");
+    name: "Home",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

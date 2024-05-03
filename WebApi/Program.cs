@@ -1,6 +1,7 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
+using WebApi.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,10 @@ builder.Host
         builder.RegisterModule(new AutofacBusinessModule());
     });
 
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,7 +33,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(builder => builder.WithOrigins("https://localhost:44310").AllowAnyHeader().AllowAnyMethod());
+app.UseCors(builder => builder
+    .WithOrigins("https://localhost:7122", "https://localhost:44380")
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials());
+
+app.MapHub<SignalRHub>("/signalrhub");
 
 app.UseHttpsRedirection();
 

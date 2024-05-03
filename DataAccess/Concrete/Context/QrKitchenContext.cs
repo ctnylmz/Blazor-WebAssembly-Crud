@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-IQBUH1V;Database=QrKitchenDB;Integrated Security=True;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-FJIFDIT;Database=QrKitchenDB;Integrated Security=True;TrustServerCertificate=true;");
         }
 
         public DbSet<About> Abouts { get; set; }
