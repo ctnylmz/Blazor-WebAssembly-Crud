@@ -1,0 +1,71 @@
+﻿@page "/videogames"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@rendermode  @(new InteractiveWebAssemblyRenderMode(prerender:false))
+
+<h3>VideoGameOverView</h3>
+
+<PageTitle>Video Games OverView</PageTitle>
+
+<h1>Video Games</h1>
+
+<p>This component demonstrates showing data.</p>
+
+@if (VideoGames.Count == 0)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Release Year</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var videoGame in VideoGames)
+            {
+                <tr>
+                    <td>@videoGame.Title</td>
+                    <td>@videoGame.Publisher</td>
+                    <td>@videoGame.ReleaseYear</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => EditGame(videoGame.Id)">Edit</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-primary" @onclick="AddGame">Add Game</button>
+
+@code {
+        List<VideoGame> VideoGames = new List<VideoGame>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+
+        var result = await Http.GetFromJsonAsync<List<VideoGame>>("api/videogames");
+        if (result is not null)
+        {
+            VideoGames = result;
+        }
+    }
+
+    void AddGame()
+    {
+        Navigation.NavigateTo("edit-game");
+    }
+
+    void EditGame(int Id)
+    {
+        Navigation.NavigateTo($"edit-game/{Id}");
+    }
+    }

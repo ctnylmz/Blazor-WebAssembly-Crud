@@ -1,0 +1,53 @@
+﻿@page "/edit-game"
+@page "/edit-game/{Id:int}"
+@inject HttpClient Http
+@rendermode @(new InteractiveWebAssemblyRenderMode(prerender:false))
+
+
+@if (Id == 0)
+{
+    <h3>Video Game Overview</h3>
+}
+else if (Game != null)
+{
+    <h3>Edit Video Game</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Release Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Game.Title</td>
+                <td>@Game.Publisher</td>
+                <td>@Game.ReleaseYear</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <p><em>Loading...</em></p>
+}
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    public VideoGame Game { get; set; } = new VideoGame();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id.HasValue && Id.Value != 0)
+        {
+            var result = await Http.GetFromJsonAsync<VideoGame>($"api/videogames/{Id.Value}");
+            if (result != null)
+            {
+                Game = result;
+            }
+        }
+    }
+}
